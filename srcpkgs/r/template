@@ -1,0 +1,33 @@
+#Template for installing the 'r' package
+pkgname=r
+version=3.2.4
+revision=1
+wrksrc="R-${version}"
+noarch=yes
+nopie=yes
+short_desc="A scripting language for statistical computing"
+only_for_archs="x86_64 i686"
+makedepends="perl liblzma-devel readline-devel xorg-server-devel gcc-fortran tk"
+maintainer="noah <nsawyer1993@gmail.com>"
+homepage="https://www.r-project.org"
+license="gpl"
+distfiles="https://cloud.r-project.org/src/base/R-3/R-${version}.tar.gz"
+checksum=bafd405fe9c2fe3bbe47a8a7730ad120f03b7df9fb0f61674fca19cf061dd350
+
+do_build() {	
+	./configure 
+	make 
+	make info
+}
+
+do_install() {
+	make install
+	make install-info
+}
+
+r-devel_package() {
+	short_desc+=" - development files"
+	depends="${sourcepkg}"
+	vmove usr/include
+	vmove usr/lib/*.so
+}
