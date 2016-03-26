@@ -1,0 +1,16 @@
+#Template for building the 'Mopidy-MPRIS'
+pkgname=mopidy-mpris
+version=1.3.1
+revision=1
+noarch=yes
+build_style="python-module"
+pycompile_module="mopidy_mpris"
+hostmakedepends="python-setuptools"
+depends="python-dbus mopidy"
+short_desc="Control Mopidy through the MPRIS D-Bus interface"
+wrksrc="Mopidy-MPRIS-${version}"
+maintainer="noah <nsawyer1993@gmail.com>"
+license="Apache-2.0"
+homepage="https://github.com/mopidy/mopidy-mpris"
+distfiles="${PYPI_SITE}/M/Mopidy-MPRIS/Mopidy-MPRIS-${version}.tar.gz"
+checksum=c534af3e5e8b4e794437cc562d6d3105e96f4c3972c310408b2aa720b781ad5b
